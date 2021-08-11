@@ -19,7 +19,7 @@ var backgroundImg,platform;
 var bird, slingShot;
 
 function preload() {
-getTime()
+getTime();
 }
 
 function setup(){
@@ -98,11 +98,10 @@ function mouseReleased(){
 //}
 
  async function getTime() {
-    var responce = await fetch("http://worldtimeapi.org/api/timezone/Asia/Dammam")
-    console.log(responce)
-    var responcejson = await responce.json();
-    var datetime = responcejson.datetime;
-    console.log(datetime)
+      var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Dammam");
+    var responseJSON = await response.json();
+
+    var datetime = responseJSON.datetime;
     var hour = datetime.slice(11,13);
     if (hour>=06 && hour<=17) {
         bg = "sprites/bg.png"
@@ -110,6 +109,6 @@ function mouseReleased(){
     else {
         bg = "https://webneel.com/sites/default/files/images/project/Angry%20Birds%20Character%20(9).jpg"
     }
-    backgroundImg = loadImage(bg)
-    console.log(backgroundImg)
+    backgroundImg = loadImage(bg);
+    console.log(backgroundImg);
 }
